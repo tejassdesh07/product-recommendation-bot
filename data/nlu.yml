@@ -1,0 +1,50 @@
+version: "3.1"
+
+nlu:
+- intent: goodbye
+  examples: |
+    - Goodbye
+    - See you later
+    - Bye
+    - Take care
+
+- intent: bot_challenge
+  examples: |
+    - Are you a bot?
+    - What are you?
+    - Are you a human or a robot?
+    - Tell me who you are
+
+- intent: affirm
+  examples: |
+    - Yes
+    - Absolutely
+    - Sure
+    - That's right
+
+- intent: ask_product
+  examples: |
+    - Can you show me [product](product)?
+    - I am looking for [laptop](product)
+    - Do you have [shoes](product) in stock?
+    - Show me some [bags](product)
+
+- intent: request_product
+  examples: |
+    - I want to buy [headphones](product)
+    - Do you have [tablets](product) available?
+    - Can I order [laptop](product)?
+    - Looking for [t-shirts](product)
+
+- intent: deny
+  examples: |
+    - No
+    - That's not what I meant
+    - I don't want that
+    - Nope
+    
+- intent: view_product_details
+  examples: |
+    - view product details
+    - show me details for product
+    - I want to see the details of [product](product_id)

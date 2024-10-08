@@ -1,0 +1,26 @@
+[
+  {
+    "text": "show product details for 7699638911046",
+    "intent": "view_product_details",
+    "intent_prediction": {
+      "name": "show_product_details",
+      "confidence": 0.9999163150787354
+    }
+  },
+  {
+    "text": "view product details 7699638911046",
+    "intent": "view_product_details",
+    "intent_prediction": {
+      "name": "show_product_details",
+      "confidence": 0.999908447265625
+    }
+  },
+  {
+    "text": "I want to see more details about 7699638911046",
+    "intent": "view_product_details",
+    "intent_prediction": {
+      "name": "show_product_details",
+      "confidence": 0.99994957447052
+    }
+  }
+]

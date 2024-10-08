@@ -1,0 +1,82 @@
+version: "3.1"
+
+intents:
+  - goodbye
+  - affirm
+  - deny
+  - ask_product
+  - request_product
+  - bot_challenge
+  - view_product_details
+
+
+
+entities:
+  - color
+  - product_type
+  - recipient
+  - product_id
+
+slots:
+  color:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: color
+  product_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: product_type
+  recipient:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: recipient
+  product_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: product_id
+
+actions:
+  - action_recommend_product
+  - action_provide_product_details
+  - action_ask_for_preferences
+  - action_ask_clarification
+  - action_add_to_cart
+  - action_buy_now
+  - action_ask_for_size
+  - action_ask_for_color
+  - action_notify_out_of_stock
+  - action_suggest_alternatives
+  - action_suggest_related_products
+  - action_confirm_cart
+  - action_provide_cart_summary
+  - action_checkout_cart
+  - action_view_product_details
+
+responses:
+  utter_greet:
+    - text: "Hey! How can I help you today?"
+  utter_thank_you:
+    - text: "Thank you for your request! Here are the products I found."
+  utter_ask_clarification:
+    - text: "Could you please clarify what kind of product you're looking for?"
+  utter_ask_product:
+    - text: "What type of product are you looking for?"
+  utter_happy:
+    - text: "Great, carry on!"
+  utter_goodbye:
+    - text: "Goodbye! Feel free to return anytime."
+  utter_iamabot:
+    - text: "I am a bot, here to assist you with your product queries."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

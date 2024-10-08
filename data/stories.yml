@@ -1,0 +1,139 @@
+version: "3.1"
+
+stories:
+- story: greet user
+  steps:
+    - user: "Hello"
+    - action: utter_greet
+
+- story: happy path
+  steps:
+    - user: "Yes"
+    - action: utter_happy
+
+- story: ask product
+  steps:
+    - user: "Can you show me a product?"
+    - action: utter_ask_product
+
+- story: product inquiry with clarification
+  steps:
+    - user: "I need a product"
+    - action: action_ask_clarification
+    - action: action_recommend_product
+    - user: "Yes"
+    - action: action_provide_product_details
+
+- story: recommend product by color
+  steps:
+    - user: "Show me a black product"
+    - action: action_recommend_product
+    - action: utter_thank_you
+
+- story: recommend product by type
+  steps:
+    - user: "I want a sling bag"
+    - action: action_recommend_product
+    - action: utter_thank_you
+
+- story: recommend product for recipient
+  steps:
+    - user: "Find a gift for my wife"
+    - action: action_recommend_product
+    - action: utter_thank_you
+
+- story: recommend product with multiple attributes
+  steps:
+    - user: "I need a blue backpack for my child"
+    - action: action_recommend_product
+    - action: utter_thank_you
+
+- story: confirm product selection
+  steps:
+    - user: "I want that product"
+    - action: action_recommend_product
+    - user: "Yes"
+    - action: action_provide_product_details
+    - user: "Yes"
+    - action: action_ask_for_size
+    - action: action_ask_for_color
+
+- story: user feedback on recommendations
+  steps:
+    - user: "I need a product"
+    - action: action_recommend_product
+    - user: "No"
+    - action: action_ask_for_preferences
+
+- story: follow-up for size and color selection
+  steps:
+    - user: "I want that product"
+    - action: action_recommend_product
+    - user: "Yes"
+    - action: action_ask_for_size
+    - action: action_ask_for_color
+    - user: "Yes"
+    - action: action_provide_product_details
+    - user: "Yes"
+    - action: action_add_to_cart
+
+- story: add product to cart
+  steps:
+    - user: "Add to my cart"
+    - action: action_add_to_cart
+    - action: utter_thank_you
+
+- story: buy product now
+  steps:
+    - user: "Buy now"
+    - action: action_buy_now
+    - action: utter_thank_you
+
+- story: product out of stock
+  steps:
+    - user: "I want that product"
+    - action: action_recommend_product
+    - action: utter_thank_you
+    - action: action_notify_out_of_stock
+    - user: "Yes"
+    - action: action_suggest_alternatives
+
+- story: suggest related products
+  steps:
+    - user: "Can you suggest related products?"
+    - action: action_recommend_product
+    - user: "No"
+    - action: action_suggest_related_products
+    - action: utter_thank_you
+
+- story: manage cart
+  steps:
+    - user: "Add to my cart"
+    - action: action_add_to_cart
+    - user: "Yes"
+    - action: action_confirm_cart
+    - user: "Yes"
+    - action: action_provide_cart_summary
+    - user: "Checkout"
+    - action: action_checkout_cart
+
+- story: advanced product inquiry
+  steps:
+    - user: "I need more details about a product"
+    - action: action_ask_clarification
+    - action: action_recommend_product
+    - user: "Yes"
+    - action: action_provide_product_details
+    - action: action_ask_for_preferences
+
+- story: unclear request
+  steps:
+    - user: "I need help"
+    - action: action_ask_clarification
+    - action: action_recommend_product
+    - action: utter_thank_you
+    
+- story: view product details directly
+  steps:
+    - action: action_view_product_details
+

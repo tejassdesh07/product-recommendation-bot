@@ -1,0 +1,56 @@
+version: "3.1"
+stories:
+- story: follow-up for size and color selection (data\stories.yml)
+  steps:
+  - user: |-
+      I want that product
+  - action: action_recommend_product
+  - user: |-
+      Yes
+  - action: action_ask_for_size  # predicted: action_provide_product_details
+  - action: action_ask_for_color
+  - user: |-
+      Yes
+  - action: action_provide_product_details
+  - user: |-
+      Yes
+  - action: action_add_to_cart  # predicted: utter_happy
+- story: product out of stock (data\stories.yml)
+  steps:
+  - user: |-
+      I want that product
+  - action: action_recommend_product
+  - action: utter_thank_you  # predicted: action_listen
+  - action: action_notify_out_of_stock
+  - user: |-
+      Yes
+  - action: action_suggest_alternatives  # predicted: action_ask_for_size
+- story: manage cart (data\stories.yml)
+  steps:
+  - user: |-
+      Add to my cart
+  - action: action_add_to_cart
+  - action: action_listen  # predicted: utter_thank_you
+  - user: |-
+      Yes
+  - action: action_confirm_cart
+  - user: |-
+      Yes
+  - action: action_provide_cart_summary
+  - user: |-
+      Checkout
+  - action: action_checkout_cart
+- story: view product details (data\stories.yml)
+  steps:
+  - intent: view_product_details
+  - action: action_view_product  # predicted: action_listen
+- story: product inquiry with clarification (data\stories.yml)
+  steps:
+  - user: |-
+      I need a product
+  - action: action_ask_clarification  # predicted: action_recommend_product
+  - action: action_recommend_product
+  - user: |-
+      Yes
+  - action: action_provide_product_details
+  - action: action_listen  # predicted: action_ask_for_preferences
